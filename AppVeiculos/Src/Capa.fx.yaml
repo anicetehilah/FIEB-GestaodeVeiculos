@@ -1,0 +1,27 @@
+"Capa As screen.'phoneLayout_Tutorial_ver3.0'":
+    BackgroundImage: ='Capa Reserva de Veículo'
+    Fill: =RGBA(245, 246, 247, 1)
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+
+    btAcessar As icon.NextArrow:
+        AccessibleLabel: ="Acessar"
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 0)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(0, 0, 0, 0)
+        Height: =106
+        HoverColor: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.NextArrow
+        OnSelect: |-
+            =Navigate(
+                '01-NovaSolicitação',
+                ScreenTransition.Fade
+            );
+            NewForm(EditForm1)
+        PressedColor: =RGBA(0, 0, 0, 0)
+        Tooltip: ="Acessar"
+        Width: =432
+        X: =102
+        Y: =924
+        ZIndex: =1
+
