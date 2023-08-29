@@ -1,0 +1,23 @@
+"'1-Início' As screen":
+    BackgroundImage: ='Vistoria de Carro'
+    Fill: =RGBA(245, 246, 247, 1)
+    ImagePosition: =ImagePosition.Fill
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+
+    Icon4 As icon.Check:
+        AccessibleLabel: ="Acessar"
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 0)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(0, 0, 0, 0)
+        Height: =106
+        HoverColor: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.Check
+        OnSelect: =Navigate('2-VistoriasLançadas', ScreenTransition.Fade)
+        PressedColor: =RGBA(0, 0, 0, 0)
+        Tooltip: ="Acessar"
+        Width: =443
+        X: =99
+        Y: =977
+        ZIndex: =9
+

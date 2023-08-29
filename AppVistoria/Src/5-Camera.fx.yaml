@@ -1,0 +1,204 @@
+"'5-Camera' As screen":
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+
+    Header1_3 As image:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =88
+        Image: ='Header Checklist'
+        ImagePosition: =ImagePosition.Fill
+        Width: =640
+        ZIndex: =1
+
+    "galPhotos As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Height: =259
+        Items: =colCameraImages
+        TemplatePadding: =0
+        TemplateSize: =Min(440, Self.Height - 60)
+        Visible: =false
+        Y: =632
+        ZIndex: =1
+
+        Image3 As image:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Height: =173
+            Image: =ThisItem.Value
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth - 32
+            X: =15
+            Y: =16
+            ZIndex: =1
+
+        Title3 As label:
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =20
+            Text: =ThisItem.DisplayName
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 64
+            X: =31
+            Y: =153
+            ZIndex: =2
+
+        btRemoverFoto As icon.Trash:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(17, 118, 189, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =38
+            Icon: =Icon.Trash
+            OnSelect: =RemoveIf(colCameraImages, DisplayName=ThisItem.DisplayName)
+            Width: =42
+            X: =78
+            Y: =210
+            ZIndex: =4
+
+    HtmlText2_3 As htmlViewer:
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =123
+        HtmlText: |-
+            ="<div style=""background: linear-gradient(90deg, #7832B4 1.52%, #1176BD 100%);width:100%;height:"&HtmlText2_3.Height-1&"px;""></div>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Width: =640
+        Y: =1013
+        ZIndex: =4
+
+    Camera As camera:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Camera: =0
+        Height: =455
+        OnSelect: |-
+            =Set(
+                varName,
+                GUID()
+            );
+            Collect(
+                colCameraImages,
+                {
+                    DisplayName: NomeFoto.Text & " " & Text(
+                        Now(),
+                        "[$-pt-BR]dd/mm/yyyy hh:mm:ss"
+                    ) & ".jpg",
+                    Id: varName & ".jpg",
+                    Value: Camera.Photo
+                }
+            );
+            Reset(CtrlAnexo)
+        OnStream: =
+        StreamRate: =100
+        Width: =640
+        Y: =177
+        ZIndex: =5
+
+    Label4 As label:
+        Align: =LayoutAlignItems.Center
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =48
+        Size: =16
+        Text: ="Clique na imagem para capturar as fotos"
+        Width: =640
+        Y: =177
+        ZIndex: =7
+
+    btCancelar1 As icon.DocumentwithContent:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =50
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate('4-EditarVistoria', ScreenTransition.Fade)
+        Width: =50
+        X: =572
+        Y: =19
+        ZIndex: =8
+
+    Button1 As button:
+        Align: =LayoutAlignItems.Center
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(17, 118, 189, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(12, 99, 159, 1), -20%)
+        OnSelect: =Clear(colCameraImages)
+        Size: =16
+        Text: ="Apagar todas as fotos"
+        Visible: =false
+        Width: =256
+        X: =192
+        Y: =925
+        ZIndex: =9
+
+    NomeFoto As text:
+        Align: =Align.Center
+        BorderColor: =RGBA(32, 54, 71, 1)
+        BorderThickness: =2
+        Color: =RGBA(0, 0, 0, 1)
+        Default: =""
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =4
+        Height: =50
+        HintText: ="Digite aqui o nome da foto"
+        HoverBorderColor: =RGBA(32, 54, 71, 1)
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(205, 209, 213, 1)
+        Size: =16
+        Width: =560
+        X: =40
+        Y: =113
+        ZIndex: =12
+
+    btPgInicial2_5 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =20
+
+        IconPagInicial_7 As icon.Home:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =53
+            Icon: =Icon.Home
+            OnSelect: =Navigate('1-Início', ScreenTransition.Fade)
+            X: =288
+            Y: =1036
+            ZIndex: =10
+
+        LbPaginaInicial_8 As label:
+            Align: =LayoutAlignItems.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =28
+            OnSelect: =Navigate('1-Início', ScreenTransition.Fade)
+            Text: ="Página Inicial"
+            Width: =128
+            X: =256
+            Y: =1089
+            ZIndex: =11
+

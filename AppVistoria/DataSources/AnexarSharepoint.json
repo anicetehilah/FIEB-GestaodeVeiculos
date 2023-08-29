@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "e11d0a9f-5b20-4f65-ab97-3127ae81e557",
+    "Name": "AnexarSharepoint",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "623317b3-561f-ed11-b83e-000d3a4f36ba"
+  }
+]

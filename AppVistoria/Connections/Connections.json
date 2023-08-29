@@ -1,0 +1,137 @@
+{
+  "24ddd771-76b7-428f-869b-c6fa402429c1": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Outlook",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/laborbol/partial-builds/390724148/1.0.1641.3327/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Outlook"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "24ddd771-76b7-428f-869b-c6fa402429c1"
+  },
+  "2ed39ec4-8382-4934-b224-269e0ad8ba6d": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3312/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://fiebedu.sharepoint.com/sites/appreservaveiculos": {
+        "dataSources": {
+          "Departamentos": {
+            "tableName": "c26b67d7-629e-4864-856f-e963000a1503"
+          },
+          "ListReserva": {
+            "tableName": "ce72cd65-2270-411d-adb7-7e8d485666c7"
+          },
+          "Tipocarro": {
+            "tableName": "840ba528-5f10-4be9-9271-54c442073867"
+          },
+          "VistoriaCarros": {
+            "tableName": "973fbee4-7d16-4cff-b881-dfa6be100814"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "VistoriaCarros",
+      "ListReserva",
+      "Departamentos",
+      "Tipocarro"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "2ed39ec4-8382-4934-b224-269e0ad8ba6d"
+  },
+  "793b6e95-bd36-4278-83ec-32c5a36b603b": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3312/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://fiebedu.sharepoint.com/sites/appreservaveiculos": {
+        "dataSources": {
+          "Carros": {
+            "tableName": "fffab688-7999-4e90-8180-8843c725fd70"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Carros"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "793b6e95-bd36-4278-83ec-32c5a36b603b"
+  },
+  "dae21a65-1b05-4442-afc4-743b1fb10972": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Fluxos lógicos",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1645/1.0.1645.3345/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "e0d9abc0-34e9-4d8a-b9b8-a5f606d5441e": {
+          "value": "shared_sharepointonline"
+        },
+        "workflowEntityId": {
+          "value": "623317b3-561f-ed11-b83e-000d3a4f36ba"
+        },
+        "workflowName": {
+          "value": "831c51e7-e1d7-df5f-44ad-c908a897650a"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sharepointonline": {
+          "value": "e0d9abc0-34e9-4d8a-b9b8-a5f606d5441e"
+        },
+        "workflowEntityId": {
+          "value": "623317b3-561f-ed11-b83e-000d3a4f36ba"
+        },
+        "workflowName": {
+          "value": "831c51e7-e1d7-df5f-44ad-c908a897650a"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "AnexarSharepoint"
+    ],
+    "dependencies": {
+      "shared_sharepointonline": "e0d9abc0-34e9-4d8a-b9b8-a5f606d5441e"
+    },
+    "dependents": [],
+    "id": "dae21a65-1b05-4442-afc4-743b1fb10972"
+  },
+  "e0d9abc0-34e9-4d8a-b9b8-a5f606d5441e": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3312/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "dae21a65-1b05-4442-afc4-743b1fb10972"
+    ],
+    "id": "e0d9abc0-34e9-4d8a-b9b8-a5f606d5441e"
+  }
+}

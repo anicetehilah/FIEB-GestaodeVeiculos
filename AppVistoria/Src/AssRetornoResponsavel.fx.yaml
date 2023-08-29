@@ -1,0 +1,165 @@
+"AssRetornoResponsavel As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+
+    PenInput2_1 As inkControl:
+        BorderColor: =RGBA(12, 99, 159, 1)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =1
+        Color: =RGBA(32, 54, 71, 1)
+        Height: =727
+        Width: =640
+        Y: =88
+        ZIndex: =4
+
+    Button2_3 As button:
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(17, 118, 189, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+        OnSelect: |-
+            =Set(NomeAssRetorno, ComboBox1_3.Selected.DisplayName);
+            
+            Set(
+                VarJSON,
+                JSON(
+                    PenInput2_1.Image,
+                    JSONFormat.IncludeBinaryData
+                )
+            );
+            
+            Set(
+                VarJSON,
+                Mid(
+                    VarJSON,
+                    24,
+                    Len(VarJSON) - 24
+                )
+            );
+            
+            AnexarSharepoint.Run(
+                "Assinatura retorno de " & ComboBox1_3.Selected.DisplayName & " " & Text(
+                        Now(),
+                        "[$-pt-BR]dd/mm/yyyy hh:mm:ss"
+                ) & ".jpg", VarJSON,galReservas.Selected.ID);
+            
+            Collect(
+                ColAssRetorno,
+                {
+                    Assinatura: PenInput2_1.Image,
+                    NomeArquivo: "Assinatura de " & ComboBox1_3.Selected.DisplayName & " " & Text(
+                        Now(),
+                        "[$-pt-BR]dd/mm/yyyy hh:mm:ss"
+                    )
+                }
+            );
+            Reset(PenInput2_1);
+            Reset(ComboBox1_3);
+            Back()
+        Size: =16
+        Text: ="Salvar"
+        Width: =256
+        X: =192
+        Y: =939
+        ZIndex: =5
+
+    HtmlText2_9 As htmlViewer:
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =123
+        HtmlText: |-
+            ="<div style=""background: linear-gradient(90deg, #7832B4 1.52%, #1176BD 100%);width:100%;height:"&HtmlText2_9.Height-1&"px;""></div>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Width: =640
+        Y: =1013
+        ZIndex: =8
+
+    Header1_9 As image:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =88
+        Image: ='Header Checklist'
+        ImagePosition: =ImagePosition.Fill
+        Width: =640
+        ZIndex: =11
+
+    btPgInicial2_11 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =11
+
+        IconPagInicial_13 As icon.Home:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =53
+            Icon: =Icon.Home
+            OnSelect: =Navigate('1-Início', ScreenTransition.Fade)
+            X: =288
+            Y: =1036
+            ZIndex: =9
+
+        LbPaginaInicial_14 As label:
+            Align: =LayoutAlignItems.Center
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =28
+            OnSelect: =Navigate('1-Início', ScreenTransition.Fade)
+            Text: ="Página Inicial"
+            Width: =128
+            X: =256
+            Y: =1089
+            ZIndex: =10
+
+    btCancelar4_1 As icon.DocumentwithContent:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =50
+        Icon: =Icon.Cancel
+        OnSelect: =Back()
+        Width: =50
+        X: =575
+        Y: =19
+        ZIndex: =12
+
+    ComboBox1_3 As combobox:
+        BorderColor: =RGBA(17, 118, 189, 1)
+        BorderThickness: =1
+        ChevronBackground: =RGBA(17, 118, 189, 1)
+        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+        ChevronHoverBackground: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        DisplayFields: =["DisplayName","Email","Picture"]
+        Height: =50
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(205, 209, 213, 1)
+        InputTextPlaceholder: ="Pesquise o nome do caloborador que assinou"
+        Items: =Choices([@VistoriaCarros].Motorista)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(32, 54, 71, 1)
+        SearchFields: =["DisplayName"]
+        SearchItems: =Choices(VistoriaCarros.Motorista,ComboBox1_3.SearchText)
+        SelectionFill: =RGBA(100, 118, 132, 1)
+        Size: =16
+        Template: =ListItemTemplate.Person
+        Width: =575
+        X: =32
+        Y: =864
+        ZIndex: =13
+
